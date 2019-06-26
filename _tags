@@ -21,14 +21,12 @@ true: annot, bin_annot
 <src/*.ml{,i,y}>: pkg_nocrypto
 # Executable test
 <tests/test.{native,byte}>: pkg_cstruct
-<tests/test.{native,byte}>: pkg_erm_treap
 <tests/test.{native,byte}>: pkg_erm_xml
 <tests/test.{native,byte}>: pkg_nocrypto
 <tests/test.{native,byte}>: use_erm_xmpp
 <tests/test.{native,byte}>: custom
 # Executable lwt_test
 <tests/lwt_test.{native,byte}>: pkg_cstruct
-<tests/lwt_test.{native,byte}>: pkg_erm_treap
 <tests/lwt_test.{native,byte}>: pkg_erm_xml
 <tests/lwt_test.{native,byte}>: pkg_lwt
 <tests/lwt_test.{native,byte}>: pkg_nocrypto
@@ -40,18 +38,15 @@ true: annot, bin_annot
 <tests/*.ml{,i,y}>: pkg_tls.lwt
 # Executable test_ie
 <tests/test_ie.{native,byte}>: pkg_cstruct
-<tests/test_ie.{native,byte}>: pkg_erm_treap
 <tests/test_ie.{native,byte}>: pkg_erm_xml
 <tests/test_ie.{native,byte}>: pkg_nocrypto
 <tests/test_ie.{native,byte}>: use_erm_xmpp
 # Executable punycode_test
 <tests/punycode_test.{native,byte}>: pkg_cstruct
-<tests/punycode_test.{native,byte}>: pkg_erm_treap
 <tests/punycode_test.{native,byte}>: pkg_erm_xml
 <tests/punycode_test.{native,byte}>: pkg_nocrypto
 <tests/punycode_test.{native,byte}>: use_erm_xmpp
 <tests/*.ml{,i,y}>: pkg_cstruct
-<tests/*.ml{,i,y}>: pkg_erm_treap
 <tests/*.ml{,i,y}>: pkg_erm_xml
 <tests/*.ml{,i,y}>: pkg_nocrypto
 <tests/*.ml{,i,y}>: use_erm_xmpp

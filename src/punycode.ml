@@ -167,5 +167,5 @@ let encode instr =
   let outstr = aux_encode h n bias delta outstr in
   let len = List.length outstr in
   let str = Bytes.create len in
-  let _ = List.fold_left (fun i c -> str.[i] <- Char.chr c; succ i) 0 outstr in
+  List.iteri (fun i c -> Bytes.set str i (Char.chr c)) outstr ;
   Bytes.unsafe_to_string str

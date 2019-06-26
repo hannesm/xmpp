@@ -68,7 +68,7 @@ let encode_unicode ucs4 =
     else if ucs4 <= 0x7ff then
       [(0xc0 lor (ucs4 lsr 6)); (0x80 lor (ucs4 land 0x3f))]
     else if ucs4 <= 0xffff then (
-      if (ucs4 >= 0xd800 & ucs4 < 0xe000) then 
+      if (ucs4 >= 0xd800 && ucs4 < 0xe000) then
         raise MalformedUnicode;
       [(0xe0 lor (ucs4 lsr 12));
        (0x80 lor ((ucs4 lsr 6) land 0x3f));

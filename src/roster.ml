@@ -91,6 +91,8 @@ struct
               acc
             else
               item :: acc
+          | Xmlelement ((_,x), _ , _) ->
+            invalid_arg (Printf.sprintf "Xmlelement expected 'item' got: %S" x)
         | Xmlcdata _ -> acc
         ) [] els in
     (ver, List.rev items)
