@@ -1,8 +1,8 @@
 # OASIS_START
-# DO NOT EDIT (digest: a49c1ae4e9bac60989f0127b525a4fcc)
+# DO NOT EDIT (digest: 075739db71aaeec3610b2cea61def924)
 version = "0.4"
 description = "XMPP protocol implementation"
-requires = "erm_xml cstruct nocrypto"
+requires = "erm_xml cstruct mirage-crypto mirage-crypto-rng base64"
 archive(byte) = "erm_xmpp.cma"
 archive(byte, plugin) = "erm_xmpp.cma"
 archive(native) = "erm_xmpp.cmxa"

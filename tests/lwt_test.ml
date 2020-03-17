@@ -62,7 +62,7 @@ struct
     Tls_lwt.Unix.write s (Cstruct.of_string str)
 
   let switch fd host =
-    Nocrypto_entropy_lwt.initialize () >>= fun () ->
+    Mirage_crypto_rng.unix.initialize ();
     X509_lwt.authenticator (`Ca_dir "certificates") >>= fun authenticator ->
     let config = Tls.Config.client ~authenticator () in
     Tls_lwt.Unix.client_of_fd config ~host fd
@@ -171,7 +171,7 @@ let presence_error t ?id ?jid_from ?jid_to ?lang error =
 
 let session starter t =
   print_endline "in session" ;
-  let dsa = Nocrypto.Dsa.generate `Fips1024 in
+  let dsa = Mirage_crypto_pk.Dsa.generate `Fips1024 in
   let config = Otr.State.config [`V2] [`REQUIRE_ENCRYPTION] in
   Printf.printf "my fp" ; Cstruct.hexdump (Cstruct.of_string (Otr.Utils.own_fingerprint dsa)) ;
   let otr = { state = (Otr.State.new_session config dsa ()) } in

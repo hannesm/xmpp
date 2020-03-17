@@ -120,7 +120,7 @@ let parse_qop str =
 
 let h s =
   let cs = Cstruct.of_string s in
-  let res = Nocrypto.Hash.digest `MD5 cs in
+  let res = Mirage_crypto.Hash.digest `MD5 cs in
   Cstruct.to_string res
 
 let hex s =
@@ -142,16 +142,15 @@ let response_value ~username ~realm ~nonce ~cnonce ~qop ~nc ~digest_uri ~passwd 
     hex (h t)
 
 let make_cnonce () =
-  let random = Nocrypto.Rng.generate 8 in
+  let random = Mirage_crypto_rng.generate 8 in
   hex (Cstruct.to_string random)
 
-let b64enc data =
-  Cstruct.to_string (Nocrypto.Base64.encode (Cstruct.of_string data))
+let b64enc data = Base64.encode_string data
 
 let b64dec data =
-  match Nocrypto.Base64.decode (Cstruct.of_string data) with
-  | None -> assert false
-  | Some x -> Cstruct.to_string x
+  match Base64.decode data with
+  | Error _ -> assert false
+  | Ok x -> x
 
 let parse_digest_md5_challenge str =
   let pairs = get_pairs str in

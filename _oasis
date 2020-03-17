@@ -31,7 +31,7 @@ Library erm_xmpp
               XEP_vcard,
               XEP_version,
               XEP_xdata
-  BuildDepends: erm_xml (>= 0.3), cstruct, nocrypto
+  BuildDepends: erm_xml (>= 0.3), cstruct, mirage-crypto, mirage-crypto-rng, base64 (>= 3.0)
 
 Executable test
   Path: tests
