@@ -1,0 +1,23 @@
+opam-version: "2.0"
+maintainer: "ygrek@autistici.org"
+license: "BSD3"
+homepage: "https://github.com/ermine/xmpp"
+depends: [
+  "ocaml"
+  "ocamlfind" {build}
+  "ocamlbuild" {build}
+  "erm_xml" {> "0.3"}
+  "camlp4"
+  "mirage-crypto"
+  "mirage-crypto-rng"
+  "base64" {>= "3.0.0"}
+]
+flags: light-uninstall
+build: [
+  ["ocaml" "setup.ml" "-configure" "--prefix" prefix]
+  ["ocaml" "setup.ml" "-build"]
+  ["ocaml" "setup.ml" "-test"] {with-test}
+]
+install: ["ocaml" "setup.ml" "-install"]
+remove: ["ocamlfind" "remove" "erm_xmpp"]
+synopsis: "XMPP protocol implementation"
