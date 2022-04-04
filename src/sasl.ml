@@ -126,7 +126,7 @@ let h s =
 let hex s =
   let cs = Cstruct.of_string s in
   let rec fill acc = function
-    | x when x = Cstruct.len cs -> acc
+    | x when x = Cstruct.length cs -> acc
     | x ->
        let datum = acc ^ Printf.sprintf "%02x" (Cstruct.get_uint8 cs x) in
        fill datum (x + 1)
