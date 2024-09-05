@@ -1,5 +1,5 @@
 # OASIS_START
-# DO NOT EDIT (digest: 501946e0787596081a640250feba6fd6)
+# DO NOT EDIT (digest: c6413fea5a9c100600ed14a02fe7a367)
 # Ignore VCS directories, you can use the same kind of rule outside
 # OASIS_START/STOP if you want to exclude directories that contains
 # useless stuff for the build process
@@ -18,12 +18,14 @@ true: annot, bin_annot
 "src/erm_xmpp.cmxs": use_erm_xmpp
 <src/*.ml{,i,y}>: pkg_base64
 <src/*.ml{,i,y}>: pkg_cstruct
+<src/*.ml{,i,y}>: pkg_digestif
 <src/*.ml{,i,y}>: pkg_erm_xml
 <src/*.ml{,i,y}>: pkg_mirage-crypto
 <src/*.ml{,i,y}>: pkg_mirage-crypto-rng
 # Executable test
 <tests/test.{native,byte}>: pkg_base64
 <tests/test.{native,byte}>: pkg_cstruct
+<tests/test.{native,byte}>: pkg_digestif
 <tests/test.{native,byte}>: pkg_erm_treap
 <tests/test.{native,byte}>: pkg_erm_xml
 <tests/test.{native,byte}>: pkg_mirage-crypto
@@ -33,6 +35,7 @@ true: annot, bin_annot
 # Executable lwt_test
 <tests/lwt_test.{native,byte}>: pkg_base64
 <tests/lwt_test.{native,byte}>: pkg_cstruct
+<tests/lwt_test.{native,byte}>: pkg_digestif
 <tests/lwt_test.{native,byte}>: pkg_erm_treap
 <tests/lwt_test.{native,byte}>: pkg_erm_xml
 <tests/lwt_test.{native,byte}>: pkg_lwt
@@ -47,6 +50,7 @@ true: annot, bin_annot
 # Executable test_ie
 <tests/test_ie.{native,byte}>: pkg_base64
 <tests/test_ie.{native,byte}>: pkg_cstruct
+<tests/test_ie.{native,byte}>: pkg_digestif
 <tests/test_ie.{native,byte}>: pkg_erm_treap
 <tests/test_ie.{native,byte}>: pkg_erm_xml
 <tests/test_ie.{native,byte}>: pkg_mirage-crypto
@@ -55,6 +59,7 @@ true: annot, bin_annot
 # Executable punycode_test
 <tests/punycode_test.{native,byte}>: pkg_base64
 <tests/punycode_test.{native,byte}>: pkg_cstruct
+<tests/punycode_test.{native,byte}>: pkg_digestif
 <tests/punycode_test.{native,byte}>: pkg_erm_treap
 <tests/punycode_test.{native,byte}>: pkg_erm_xml
 <tests/punycode_test.{native,byte}>: pkg_mirage-crypto
@@ -62,6 +67,7 @@ true: annot, bin_annot
 <tests/punycode_test.{native,byte}>: use_erm_xmpp
 <tests/*.ml{,i,y}>: pkg_base64
 <tests/*.ml{,i,y}>: pkg_cstruct
+<tests/*.ml{,i,y}>: pkg_digestif
 <tests/*.ml{,i,y}>: pkg_erm_treap
 <tests/*.ml{,i,y}>: pkg_erm_xml
 <tests/*.ml{,i,y}>: pkg_mirage-crypto

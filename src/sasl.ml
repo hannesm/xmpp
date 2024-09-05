@@ -118,10 +118,7 @@ let parse_qop str =
     with _ ->
       raise (Error "Malformed qop in SASL challenge")
 
-let h s =
-  let cs = Cstruct.of_string s in
-  let res = Mirage_crypto.Hash.digest `MD5 cs in
-  Cstruct.to_string res
+let h s = Digestif.MD5.(to_raw_string (digest_string s))
 
 let hex s =
   let cs = Cstruct.of_string s in
