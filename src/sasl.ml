@@ -121,11 +121,10 @@ let parse_qop str =
 let h s = Digestif.MD5.(to_raw_string (digest_string s))
 
 let hex s =
-  let cs = Cstruct.of_string s in
   let rec fill acc = function
-    | x when x = Cstruct.length cs -> acc
+    | x when x = String.length s -> acc
     | x ->
-       let datum = acc ^ Printf.sprintf "%02x" (Cstruct.get_uint8 cs x) in
+       let datum = acc ^ Printf.sprintf "%02x" (String.get_uint8 s x) in
        fill datum (x + 1)
   in
   fill "" 0
@@ -140,7 +139,7 @@ let response_value ~username ~realm ~nonce ~cnonce ~qop ~nc ~digest_uri ~passwd 
 
 let make_cnonce () =
   let random = Mirage_crypto_rng.generate 8 in
-  hex (Cstruct.to_string random)
+  hex random
 
 let b64enc data = Base64.encode_string data
 

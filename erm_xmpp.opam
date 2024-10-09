@@ -8,8 +8,8 @@ depends: [
   "ocamlbuild" {build}
   "erm_xml" {> "0.3"}
   "camlp4"
-  "mirage-crypto"
-  "mirage-crypto-rng"
+  "mirage-crypto" {>= "1.0.0"}
+  "mirage-crypto-rng" {>= "1.0.0"}
   "digestif" {>= "1.2.0"}
   "base64" {>= "3.0.0"}
 ]
