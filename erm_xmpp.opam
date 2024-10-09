@@ -10,6 +10,7 @@ depends: [
   "camlp4"
   "mirage-crypto"
   "mirage-crypto-rng"
+  "digestif" {>= "1.2.0"}
   "base64" {>= "3.0.0"}
 ]
 flags: light-uninstall
